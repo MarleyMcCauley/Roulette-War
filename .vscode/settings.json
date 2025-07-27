@@ -1,0 +1,9 @@
+{
+    "Lua.workspace.library": [
+        "${addons}/ncine/module/library"
+    ],
+    "Lua.workspace.checkThirdParty": false,
+    "Lua.diagnostics.globals": [
+        "love"
+    ]
+}
