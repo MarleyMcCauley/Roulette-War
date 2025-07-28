@@ -1,5 +1,5 @@
 function love.load()
-    backgroundImage = love.graphics.newImage('images/casiontable.png')
+    backgroundImage = love.graphics.newImage('images/face_goat.png')
 
     images = {}
     for nameIndex, name in ipairs({
