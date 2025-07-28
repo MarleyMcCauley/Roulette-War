@@ -77,9 +77,9 @@ end
     }
 
      buttonRoulette = {
-        x = 70,
+        x = 130,
         y = buttonY,
-        width = 53,
+        width = 65,
         height = buttonHeight,
         text = 'Roulette',
         textOffsetX = 8,
@@ -123,10 +123,17 @@ function love.mousereleased()
             if getTotal(playerHand) >= 21 then
                 roundOver = true
             end
-        elseif isMouseInButton(buttonStand) then
+        elseif not roundOver then 
+            if isMouseInButton(buttonRoulette) then 
+                takeCard(playerHand)
+                if getTotal(playerHand) >= 21 then
+                roundOver = true
+            end
+        end
+        if isMouseInButton(buttonStand) then
             roundOver = true
         end
-
+    end
         if roundOver then
             while getTotal(dealerHand) < 17 do
                 takeCard(dealerHand)
@@ -337,7 +344,7 @@ love.graphics.setColor(0, 0, 0)
         elseif hasHandWon(dealerHand, playerHand) then
             drawWinner('Dealer has defeated the noble Hero')
         else
-            drawWinner('Draw')
+            drawWinner('The battle has come to a stalemate')
         end
     end
     
@@ -355,8 +362,9 @@ love.graphics.setColor(0, 0, 0)
 if not roundOver then
     drawButton(buttonHit)
     drawButton(buttonStand)
+    drawButton(buttonRoulette)
 else
     drawButton(buttonPlayAgain)
     drawButton(buttonQuit)
 end
-end
+end 
