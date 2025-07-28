@@ -25,6 +25,10 @@ function love.load()
         table.insert(hand, table.remove(deck, love.math.random(#deck)))
     end
 
+    RouletteHand = {}
+    takeCard(RouletteHand)
+    takeCard(RouletteHand)
+    
     playerHand ={}
     takeCard(playerHand)
     takeCard(playerHand)
@@ -125,7 +129,7 @@ function love.mousereleased()
             end
         elseif not roundOver then 
             if isMouseInButton(buttonRoulette) then 
-                takeCard(playerHand)
+                takeCard(RouletteHand)
                 if getTotal(playerHand) >= 21 then
                 roundOver = true
             end
