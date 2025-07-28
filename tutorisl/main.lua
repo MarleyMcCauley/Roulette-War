@@ -1,5 +1,5 @@
 function love.load()
-    love.graphics.setBackgroundColor(1, 1, 1)
+    backgroundImage = love.graphics.newImage('images/casiontable.png')
 
     images = {}
     for nameIndex, name in ipairs({
@@ -172,7 +172,9 @@ function love.draw()
     end
         return total
     end
-    
+
+    love.graphics.draw(backgroundImage, 0, 0, 0, 2, 1.7)
+
     local function drawCard(card, x, y)
         love.graphics.setColor(1, 1, 1)
         love.graphics.draw(images.card, x, y)
@@ -320,7 +322,7 @@ end
 for cardIndex, card in ipairs(playerHand) do
         drawCard(card, ((cardIndex - 1) * cardSpacing) + marginX, 140)
 end
-love.graphics.setColor(0, 0, 0)
+love.graphics.setColor(3, 5, 3)
 
     if roundOver then
         love.graphics.print('Total: '..getTotal(dealerHand), marginX, 10)
